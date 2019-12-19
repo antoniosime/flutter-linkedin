@@ -25,7 +25,12 @@ class BasePost extends StatelessWidget {
       padding: this.padding ?? EdgeInsets.all(0),
       margin: this.margin ?? EdgeInsets.all(0),
       child: Column(
-        children: <Widget>[title, descrtiption, content, action],
+        children: <Widget>[
+          title,
+          descrtiption,
+          content,
+          action
+        ],
       ),
     );
   }
