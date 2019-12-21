@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:linkedin/models/company.dart';
 
 class User {
+  int id;
   String name;
   String surname;
   String profesion;
@@ -10,6 +11,7 @@ class User {
 
   User(
       {Key key,
+      this.id,
       this.name,
       this.surname,
       this.profesion,
