@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:linkedin/home_page.dart';
+import 'package:linkedin/screens/main_screen.dart';
 
 void main() => runApp(MyApp());
 
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: Scaffold(
-        body: HomePage(),
+        body: MainScreen(),
       ),
     );
   }

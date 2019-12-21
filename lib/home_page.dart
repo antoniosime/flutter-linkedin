@@ -4,14 +4,8 @@ import 'package:linkedin/posts/like_post.dart';
 
 import 'package:linkedin/posts/user_post.dart';
 
-class HomePage extends StatefulWidget {
-  @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
-  Widget build(BuildContext context) {
+class HomePage extends StatelessWidget {
+   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
       child: ListView.builder(
@@ -31,3 +25,5 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
+
