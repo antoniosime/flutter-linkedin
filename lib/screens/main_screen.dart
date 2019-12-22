@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:linkedin/data/user_data.dart';
 import 'package:linkedin/jobs/jobs_page.dart';
 import 'package:linkedin/my_network_page.dart';
 import 'package:linkedin/notifications/notifications_page.dart';
 import 'package:linkedin/posts/add_post.dart';
+import 'package:provider/provider.dart';
 
 import '../home_page.dart';
 
@@ -15,11 +17,18 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int selectedTab = 0;
   PageController _pageController;
+  UserData userProvider;
 
   @override
   void initState() {
     super.initState();
     _pageController = new PageController();
+  }
+
+  @override
+  void didChangeDependencies() {
+    userProvider = Provider.of<UserData>(context);
+    super.didChangeDependencies();
   }
 
   @override
@@ -35,7 +44,13 @@ class _MainScreenState extends State<MainScreen> {
       body: PageView(
         controller: _pageController,
         onPageChanged: onTabChanged,
-        children: <Widget>[HomePage(), MyNetworkPage(), AddPost(), NotificationsPage(), JobsPage()],
+        children: <Widget>[
+          HomePage(),
+          MyNetworkPage(),
+          AddPost(),
+          NotificationsPage(),
+          JobsPage()
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
           type: BottomNavigationBarType.fixed,
@@ -61,10 +76,8 @@ class _MainScreenState extends State<MainScreen> {
     return AppBar(
       leading: Container(
         padding: EdgeInsets.only(top: 10, bottom: 10, left: 10),
-        child: CircleAvatar(
-          child: Icon(
-            Icons.person,
-          ),
+        child: ClipOval(
+          child: Image.network(userProvider.user.imageUrl),
         ),
       ),
       title: Padding(

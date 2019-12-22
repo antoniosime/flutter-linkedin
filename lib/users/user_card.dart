@@ -3,8 +3,11 @@ import 'package:linkedin/models/user.dart';
 
 class UserCard extends StatelessWidget {
   final User user;
+  final Function remove;
+  final Function addConnection;
 
-  const UserCard({Key key, this.user}) : super(key: key);
+  UserCard({Key key, this.user, this.remove, this.addConnection})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -19,11 +22,8 @@ class UserCard extends StatelessWidget {
             children: <Widget>[
               Container(
                 child: ClipOval(
-                  child: Image.network(
-                      user.imageUrl,
-                      width: 60,
-                      height: 60,
-                      fit: BoxFit.fill),
+                  child: Image.network(user.imageUrl,
+                      width: 60, height: 60, fit: BoxFit.fill),
                 ),
               ),
               SizedBox(
@@ -58,24 +58,28 @@ class UserCard extends StatelessWidget {
                       .textTheme
                       .body1
                       .copyWith(color: Colors.grey)),
-              OutlineButton(
-                child: new Text("CONNECT"),
-                onPressed: () => print("object"),
-                textColor: Colors.blue,
-                borderSide: BorderSide(
-                  color: Colors.blue, //Color of the border
-                  style: BorderStyle.solid, //Style of the border
-                  width: 0.8, //width of the border
-                ),
+               OutlineButton(
+                  child: new Text("CONNECT"),
+                  onPressed: () => addConnection(user.id),
+                  textColor: Colors.blue,
+                  borderSide: BorderSide(
+                    color: Colors.blue, //Color of the border
+                    style: BorderStyle.solid, //Style of the border
+                    width: 0.8, //width of the border
+                  ),
+                
               )
             ],
           ),
           Positioned(
             top: 1,
             right: 1,
-            child: Icon(
-              Icons.close,
-              color: Colors.black,
+            child: GestureDetector(
+              onTap: () => remove(user.id),
+              child: Icon(
+                Icons.close,
+                color: Colors.black,
+              ),
             ),
           )
         ],

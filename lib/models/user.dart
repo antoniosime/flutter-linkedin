@@ -8,6 +8,7 @@ class User {
   String profesion;
   String imageUrl;
   Company company;
+  List<int> connections;
 
   User(
       {Key key,
@@ -16,5 +17,6 @@ class User {
       this.surname,
       this.profesion,
       this.company,
-      this.imageUrl});
+      this.imageUrl,
+      this.connections});
 }

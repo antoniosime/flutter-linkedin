@@ -1,12 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:linkedin/data/temp_db.dart';
-import 'package:linkedin/models/user.dart';
+import 'package:linkedin/data/user_data.dart';
 import 'package:linkedin/users/user_card.dart';
+import 'package:provider/provider.dart';
 
 class MyNetworkPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final userProvider = Provider.of<UserData>(context);
     return Container(
       color: Colors.grey,
       child: Column(
@@ -42,8 +43,14 @@ class MyNetworkPage extends StatelessWidget {
                 crossAxisSpacing: 10,
                 mainAxisSpacing: 10,
                 padding: EdgeInsets.all(10),
-                childAspectRatio: 1 / 1.3,
-                children: TempDB().users.map((f)=> UserCard(user: f,)).toList(),
+                childAspectRatio: 1 / 1.6,
+                children: userProvider.users
+                    .map((f) => UserCard(
+                          user: f,
+                          remove: userProvider.remove,
+                          addConnection: userProvider.addConection,
+                        ))
+                    .toList(),
               ),
             ),
           )
