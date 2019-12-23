@@ -1,29 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:linkedin/posts/company_post.dart';
-import 'package:linkedin/posts/like_post.dart';
-
 import 'package:linkedin/posts/user_post.dart';
+import 'package:provider/provider.dart';
+
+import 'data/post_data.dart';
+import 'models/post.dart';
 
 class HomePage extends StatelessWidget {
-   Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
+    final posts = Provider.of<PostData>(context).posts;
     return Container(
       color: Colors.white,
       child: ListView.builder(
-        itemCount: 10,
+        itemCount: posts.length,
         itemBuilder: (BuildContext context, int index) {
-          if (index % 2 == 0) {
-            return LikePost(
-              title: "Antonio Simeonovski",
-              text: "like this",
-              post: UserPost(),
+          Post p = posts.elementAt(index);
+          if (p.ownertType == 1) {
+            return CompanyPost(
+              post: p,
             );
           } else {
-            return CompanyPost();
+            return UserPost(
+              post: p,
+            );
           }
         },
       ),
     );
   }
 }
-
-

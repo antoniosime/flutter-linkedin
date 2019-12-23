@@ -7,4 +7,12 @@ class CompanyData with ChangeNotifier {
   CompanyData() {
     companies = TempDB().companies;
   }
+
+  Company getComapnyByID(String id){
+
+    Company company = companies.firstWhere((x)=>x.id==id);
+
+    return company;
+  }
+
 }

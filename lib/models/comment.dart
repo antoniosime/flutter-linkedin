@@ -1,7 +1,7 @@
 class Comment {
-  int id;
-  int postID;
-  int userID;
+  String id;
+  String postID;
+  String userID;
   String comment;
   DateTime time;
 

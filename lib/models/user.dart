@@ -2,13 +2,13 @@ import 'package:flutter/cupertino.dart';
 import 'package:linkedin/models/company.dart';
 
 class User {
-  int id;
+  String id;
   String name;
   String surname;
   String profesion;
   String imageUrl;
   Company company;
-  List<int> connections;
+  List<String> connections;
 
   User(
       {Key key,

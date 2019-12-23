@@ -1,13 +1,14 @@
 import 'package:linkedin/models/comment.dart';
 
+
 class Post {
-  int id;
+  String id;
   int ownertType;
-  int owner;
+  String owner;
   String title;
   String description;
   String content;
-  List<int> likes;
+  List<String> likes;
   List<Comment> comments;
 
   Post(this.id, this.ownertType, this.owner, this.title, this.content,

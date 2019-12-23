@@ -17,12 +17,12 @@ class UserData with ChangeNotifier {
     notifyListeners();
   }
 
-  remove(int userid) {
+  remove(String userid) {
     users.removeWhere((f) => f.id == userid);
     notifyListeners();
   }
 
-  addConection(int userID) {
+  addConection(String userID) {
     // add userId as connection
     user.connections.add(userID);
     // remove userid form suggested list

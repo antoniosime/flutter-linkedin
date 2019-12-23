@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:linkedin/data/temp_db.dart';
 import 'package:linkedin/models/comment.dart';
 import 'package:linkedin/models/post.dart';
+import 'package:uuid/uuid.dart';
 
 class PostData with ChangeNotifier {
   List<Post> posts;
@@ -9,22 +10,24 @@ class PostData with ChangeNotifier {
     posts = TempDB().posts;
   }
 
-  like(int postID, int userID) {
-    Post post = posts.firstWhere((p) => p.id == postID);
-    post.likes.add(userID);
+  like(String postID, String userID) {
+    posts.firstWhere((p) => p.id == postID).likes.add(userID);
+    print(postID.toString() + " " + userID.toString());
+    
+    notifyListeners();
   }
 
-  comment(int postID, int userID, String comment) {
+  comment(String postID, String userID, String comment) {
     Post post = posts.firstWhere((p) => p.id == postID);
     post.comments.add(Comment(
-        id: 2,
+        id: Uuid().v1(),
         postID: postID,
         userID: userID,
         comment: comment,
         time: DateTime.now()));
   }
 
-  remove(int postID) {
+  remove(String postID) {
     posts.removeWhere((f) => f.id == postID);
     notifyListeners();
   }
