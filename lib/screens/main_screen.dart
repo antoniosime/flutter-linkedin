@@ -8,6 +8,7 @@ import 'package:linkedin/posts/add_post.dart';
 import 'package:provider/provider.dart';
 
 import '../home_page.dart';
+import 'package:linkedin/constances.dart';
 
 class MainScreen extends StatefulWidget {
   @override
@@ -72,12 +73,20 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 
+  goToUserProfile() {
+    Navigator.pushNamed(context, UserProfileScreen,
+        arguments: {'userID': this.userProvider.user.id});
+  }
+
   PreferredSizeWidget getAppBar() {
     return AppBar(
-      leading: Container(
-        padding: EdgeInsets.only(top: 10, bottom: 10, left: 10),
-        child: ClipOval(
-          child: Image.network(userProvider.user.imageUrl),
+      leading: GestureDetector(
+        onTap: goToUserProfile,
+        child: Container(
+          padding: EdgeInsets.only(top: 10, bottom: 10, left: 10),
+          child: ClipOval(
+            child: Image.network(userProvider.user.imageUrl),
+          ),
         ),
       ),
       title: Padding(
