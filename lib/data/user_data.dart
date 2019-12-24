@@ -26,6 +26,6 @@ class UserData with ChangeNotifier {
     // add userId as connection
     user.connections.add(userID);
     // remove userid form suggested list
-    remove(userID);
+    
   }
 }

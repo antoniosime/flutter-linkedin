@@ -44,8 +44,11 @@ class MyApp extends StatelessWidget {
 
     switch (settings.name) {
       case UserProfileScreen:
-        widget = UserProfile(
-          userID: arguments['userID'],
+        widget = ChangeNotifierProvider(
+          create: (_) => UserData(),
+          child: UserProfile(
+            userID: arguments['userID'],
+          ),
         );
         break;
       default:

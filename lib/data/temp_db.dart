@@ -1,5 +1,6 @@
 import 'package:linkedin/models/comment.dart';
 import 'package:linkedin/models/company.dart';
+import 'package:linkedin/models/experince.dart';
 import 'package:linkedin/models/post.dart';
 import 'package:linkedin/models/user.dart';
 import 'package:uuid/uuid.dart';
@@ -26,8 +27,11 @@ class TempDB {
   }
 
   initDB() {
-    Company servicePro =
-        new Company(Uuid().v1(), "Service Pro", "imageUrl", 20000);
+    Company servicePro = new Company(
+        Uuid().v1(),
+        "Service Pro",
+        "https://www.insopra.com/wp-content/uploads/2019/10/amazon-logo.png",
+        20000);
     companies.add(servicePro);
     Company amazon = new Company(
         Uuid().v1(),
@@ -49,15 +53,35 @@ class TempDB {
 
     companies.add(pluralsight);
 
-    users.add(User(
+    User u1 = User(
         connections: List<String>(),
         id: Uuid().v1(),
         name: "Antonio",
+        country: "Macedonia",
         surname: "Simeonovski",
         company: servicePro,
         profesion: "Software Developer",
         imageUrl:
-            "https://media.licdn.com/dms/image/C5603AQEyiNfrJtdRPQ/profile-displayphoto-shrink_200_200/0?e=1582156800&v=beta&t=x1ORj_z31bvCjMNx3MFK8OfDnOBojrVS3elAHT73GgY"));
+            "https://media.licdn.com/dms/image/C5603AQEyiNfrJtdRPQ/profile-displayphoto-shrink_200_200/0?e=1582156800&v=beta&t=x1ORj_z31bvCjMNx3MFK8OfDnOBojrVS3elAHT73GgY",
+        experiences: new List<Experince>());
+
+    u1.experiences.add(new Experince(
+        title: "Software Devloper",
+        company: servicePro,
+        start: DateTime.now(),
+        end: DateTime.now()));
+    u1.experiences.add(new Experince(
+        title: "Software Devloper",
+        company: hays,
+        start: DateTime.now(),
+        end: DateTime.now()));
+    u1.experiences.add(new Experince(
+        title: "Software Devloper",
+        company: servicePro,
+        start: DateTime.now(),
+        end: DateTime.now()));
+
+    users.add(u1);
 
     users.add(User(
         connections: List<String>(),
