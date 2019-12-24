@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:linkedin/data/user_data.dart';
-import 'package:linkedin/models/experince.dart';
+import 'package:linkedin/users/user_education.dart';
 import 'package:linkedin/users/user_experiences.dart';
 import 'package:linkedin/users/user_profile_card.dart';
 import 'package:provider/provider.dart';
@@ -37,6 +37,9 @@ class _UserProfileState extends State<UserProfile> {
             children: <Widget>[
               UserProfileCard(user: userProvider.user),
               UserExperiences(experiences: userProvider.user.experiences),
+              UserEducation(
+                educations: userProvider.user.educations,
+              )
             ],
           ),
         );
