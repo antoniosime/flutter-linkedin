@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:linkedin/models/education.dart';
+import 'package:linkedin/models/contact.dart';
 
-class UserEducation extends StatelessWidget {
-  final List<Education> educations;
+class UserContact extends StatelessWidget {
+  final List<Contact> contacts;
 
-  const UserEducation({Key key, this.educations}) : super(key: key);
+  const UserContact({Key key, this.contacts}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -17,20 +18,16 @@ class UserEducation extends StatelessWidget {
           Padding(
             padding: EdgeInsets.only(top: 10, left: 10),
             child: Text(
-              "Education",
+              "Contact",
               style: Theme.of(context).textTheme.title,
             ),
           ),
           Column(
-            children: educations
+            children: contacts
                 .map((f) => ListTile(
-                      leading: Image.network(
-                        f.imageUrl,
-                        height: 40,
-                        width: 40,
-                      ),
+                      leading: Icon(f.iconData, color: Colors.blue,),
                       title: Text("${f.title}"),
-                      subtitle: Text("${f.title}"),
+                      subtitle: Text("${f.content}", style: TextStyle(color: Colors.blue),),
                     ))
                 .toList(),
           ),

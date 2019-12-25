@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:linkedin/data/user_data.dart';
+import 'package:linkedin/users/user_contact.dart';
 import 'package:linkedin/users/user_education.dart';
 import 'package:linkedin/users/user_experiences.dart';
+import 'package:linkedin/users/user_list.dart';
 import 'package:linkedin/users/user_profile_card.dart';
 import 'package:provider/provider.dart';
 
@@ -26,7 +28,7 @@ class _UserProfileState extends State<UserProfile> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey,
+      backgroundColor: Colors.grey[100],
       appBar: getAppBar(),
       body: LayoutBuilder(
           builder: (BuildContext context, BoxConstraints viewportConstraints) {
@@ -37,9 +39,11 @@ class _UserProfileState extends State<UserProfile> {
             children: <Widget>[
               UserProfileCard(user: userProvider.user),
               UserExperiences(experiences: userProvider.user.experiences),
-              UserEducation(
-                educations: userProvider.user.educations,
-              )
+              UserEducation(educations: userProvider.user.educations),
+              UserContact(contacts: userProvider.user.contacts),
+              UserList(
+                  users: userProvider.users.take(10).toList(),
+                  title: "People also viewed")
             ],
           ),
         );
@@ -50,7 +54,7 @@ class _UserProfileState extends State<UserProfile> {
   PreferredSizeWidget getAppBar() {
     return AppBar(
       leading: GestureDetector(
-        onTap: () => print("object"),
+        onTap: () => Navigator.pop(context),
         child: Icon(Icons.arrow_back),
       ),
       title: Padding(

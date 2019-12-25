@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:linkedin/models/company.dart';
+import 'package:linkedin/models/contact.dart';
 import 'package:linkedin/models/experince.dart';
 
 import 'education.dart';
@@ -16,6 +17,7 @@ class User {
   List<String> connections;
   List<Experince> experiences;
   List<Education> educations;
+  List<Contact> contacts;
 
   User(
       {Key key,
@@ -29,5 +31,6 @@ class User {
       this.experiences,
       this.city,
       this.country,
-      this.educations});
+      this.educations,
+      this.contacts});
 }

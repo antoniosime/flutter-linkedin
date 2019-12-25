@@ -9,7 +9,7 @@ class UserProfileCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 10),
+      margin: EdgeInsets.only(bottom: 5),
       color: Colors.white,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
@@ -66,7 +66,15 @@ class UserProfileCard extends StatelessWidget {
                   style: Theme.of(context)
                       .textTheme
                       .subtitle
-                      .copyWith(fontWeight: FontWeight.normal, fontSize: 17),
+                      .copyWith(fontWeight: FontWeight.normal, fontSize: 16),
+                ),
+                 SizedBox(height: 10),
+                Text(
+                  "${user.educations.first.title}",
+                  style: Theme.of(context)
+                      .textTheme
+                      .subtitle
+                      .copyWith(fontWeight: FontWeight.normal, fontSize: 16),
                 ),
                 SizedBox(height: 5),
                 Row(

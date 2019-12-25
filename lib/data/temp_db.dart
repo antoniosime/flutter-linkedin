@@ -1,5 +1,7 @@
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:linkedin/models/comment.dart';
 import 'package:linkedin/models/company.dart';
+import 'package:linkedin/models/contact.dart';
 import 'package:linkedin/models/education.dart';
 import 'package:linkedin/models/experince.dart';
 import 'package:linkedin/models/post.dart';
@@ -57,6 +59,7 @@ class TempDB {
     User u1 = User(
         connections: List<String>(),
         educations: List<Education>(),
+        contacts: List<Contact>(),
         id: Uuid().v1(),
         name: "Antonio",
         country: "Macedonia",
@@ -88,10 +91,14 @@ class TempDB {
         imageUrl:
             "https://www.finki.ukim.mk/Content/dataImages/downloads/logo-large-500x500_2.png"));
 
-    u1.educations.add(new Education(
-        title: "Faculty of Computer Science and Engineering - FINKI",
-        imageUrl:
-            "https://www.finki.ukim.mk/Content/dataImages/downloads/logo-large-500x500_2.png"));
+    u1.contacts.add(new Contact(
+        iconData: FontAwesomeIcons.linkedin,
+        title: "Your Profile",
+        content: "https://www.linkedin.com/in/antonio-simeonovski-78a349102/"));
+    u1.contacts.add(new Contact(
+        title: "Email",
+        content: "antoniosimeonovski@gmail.com",
+        iconData: FontAwesomeIcons.envelope));
 
     users.add(u1);
 

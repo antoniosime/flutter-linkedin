@@ -12,7 +12,7 @@ class UserExperiences extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.only(bottom: 10),
+      margin: EdgeInsets.only(bottom: 5),
       color: Colors.white,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
