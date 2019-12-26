@@ -25,6 +25,7 @@ class PostData with ChangeNotifier {
         userID: userID,
         comment: comment,
         time: DateTime.now()));
+        notifyListeners();
   }
 
   remove(String postID) {

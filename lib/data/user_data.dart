@@ -28,4 +28,13 @@ class UserData with ChangeNotifier {
     // remove userid form suggested list
     
   }
+
+  User getUserByID(String id){
+    return users.firstWhere((f)=>f.id==id);
+  }
+
+  String getImageUrlByID(String id){
+    return  users.firstWhere((f)=>f.id==id).imageUrl;
+  }
+
 }

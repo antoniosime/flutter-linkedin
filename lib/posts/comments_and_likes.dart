@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:linkedin/constances.dart';
 import 'package:linkedin/data/post_data.dart';
 import 'package:linkedin/data/user_data.dart';
 import 'package:linkedin/models/post.dart';
@@ -19,6 +20,11 @@ class _CommentsAndLikesState extends State<CommentsAndLikes> {
   Post post;
 
   _CommentsAndLikesState({this.post});
+
+  goToPostScreen() {
+    Navigator.pushNamed(context, PostScreen,
+        arguments: {'postID': this.post.id});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,9 +61,12 @@ class _CommentsAndLikesState extends State<CommentsAndLikes> {
                   ],
                 ),
               ),
-              trailing: Text(
-                "${post.comments.length.toString()} comments",
-                style: TextStyle(fontSize: 12),
+              trailing: GestureDetector(
+                onTap: goToPostScreen,
+                child: Text(
+                  "${post.comments.length.toString()} comments",
+                  style: TextStyle(fontSize: 12),
+                ),
               ),
             ),
           ),

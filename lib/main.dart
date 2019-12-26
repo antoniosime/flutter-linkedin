@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:linkedin/data/company_data.dart';
 import 'package:linkedin/data/post_data.dart';
 import 'package:linkedin/data/user_data.dart';
+import 'package:linkedin/posts/post_view.dart';
 import 'package:linkedin/screens/main_screen.dart';
 import 'package:linkedin/users/user_profile.dart';
 import 'package:provider/provider.dart';
@@ -46,9 +47,23 @@ class MyApp extends StatelessWidget {
       case UserProfileScreen:
         widget = ChangeNotifierProvider(
           create: (_) => UserData(),
-          child: UserProfile(
-            userID: arguments['userID'],
+          child: UserProfile(userID: arguments['userID']),
+        );
+        break;
+      case PostScreen:
+        widget = MultiProvider(
+          providers: [
+            ChangeNotifierProvider<UserData>(
+            create: (_) => UserData(),
           ),
+            ChangeNotifierProvider<PostData>(
+              create: (_) => PostData(),
+            ),
+            ChangeNotifierProvider<CompanyData>(
+              create: (_) => CompanyData(),
+            )
+          ],
+          child: PostView(postID: arguments['postID']),
         );
         break;
       default:
