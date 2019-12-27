@@ -78,6 +78,11 @@ class _MainScreenState extends State<MainScreen> {
         arguments: {'userID': this.userProvider.user.id});
   }
 
+  goToSearch() {
+    print("search");
+    Navigator.pushNamed(context, SearchScreen);
+  }
+
   PreferredSizeWidget getAppBar() {
     return AppBar(
       leading: GestureDetector(
@@ -92,6 +97,7 @@ class _MainScreenState extends State<MainScreen> {
       title: Padding(
         padding: EdgeInsets.only(top: 10, bottom: 10),
         child: TextField(
+          onTap: goToSearch,
           decoration: InputDecoration(
               focusedBorder: OutlineInputBorder(
                 borderSide: BorderSide(color: Colors.white),

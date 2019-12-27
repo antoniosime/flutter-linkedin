@@ -65,6 +65,7 @@ class _PostViewState extends State<PostView> {
       decoration: BoxDecoration(border: Border.all(color: Colors.grey[300])),
       child: ListTile(
         enabled: false,
+        
         title: TextField(
           controller: textControler,
           style: new TextStyle(color: Colors.grey),

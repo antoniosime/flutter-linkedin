@@ -4,6 +4,7 @@ import 'package:linkedin/data/post_data.dart';
 import 'package:linkedin/data/user_data.dart';
 import 'package:linkedin/posts/post_view.dart';
 import 'package:linkedin/screens/main_screen.dart';
+import 'package:linkedin/search/search_screen.dart';
 import 'package:linkedin/users/user_profile.dart';
 import 'package:provider/provider.dart';
 import 'constances.dart';
@@ -54,8 +55,8 @@ class MyApp extends StatelessWidget {
         widget = MultiProvider(
           providers: [
             ChangeNotifierProvider<UserData>(
-            create: (_) => UserData(),
-          ),
+              create: (_) => UserData(),
+            ),
             ChangeNotifierProvider<PostData>(
               create: (_) => PostData(),
             ),
@@ -64,6 +65,12 @@ class MyApp extends StatelessWidget {
             )
           ],
           child: PostView(postID: arguments['postID']),
+        );
+        break;
+      case SearchScreen:
+        widget = ChangeNotifierProvider(
+          create: (_) => UserData(),
+          child: Search(),
         );
         break;
       default:
