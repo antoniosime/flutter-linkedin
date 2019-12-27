@@ -1,14 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:linkedin/data/user_data.dart';
-import 'package:linkedin/jobs/jobs_page.dart';
+import 'package:linkedin/main_view.dart';
 import 'package:linkedin/my_network_page.dart';
-import 'package:linkedin/notifications/notifications_page.dart';
-import 'package:linkedin/posts/add_post.dart';
 import 'package:provider/provider.dart';
 
-import '../home_page.dart';
 import 'package:linkedin/constances.dart';
+
+import 'features/jobs/jobs_page.dart';
+import 'features/notifications/notifications_page.dart';
+import 'features/posts/add_post.dart';
+
 
 class MainScreen extends StatefulWidget {
   @override
@@ -46,7 +48,7 @@ class _MainScreenState extends State<MainScreen> {
         controller: _pageController,
         onPageChanged: onTabChanged,
         children: <Widget>[
-          HomePage(),
+          MainView(),
           MyNetworkPage(),
           AddPost(),
           NotificationsPage(),
@@ -155,3 +157,5 @@ class _MainScreenState extends State<MainScreen> {
     return list;
   }
 }
+
+class HomePage {}

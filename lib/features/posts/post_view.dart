@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:linkedin/comments/comment_item.dart';
 import 'package:linkedin/data/post_data.dart';
 import 'package:linkedin/data/user_data.dart';
+import 'package:linkedin/features/comments/comment_item.dart';
 import 'package:linkedin/models/post.dart';
 import 'package:linkedin/models/user.dart';
-import 'package:linkedin/posts/company_post.dart';
 import 'package:provider/provider.dart';
+
+import 'company_post.dart';
 
 class PostView extends StatefulWidget {
   final String postID;
@@ -65,7 +66,6 @@ class _PostViewState extends State<PostView> {
       decoration: BoxDecoration(border: Border.all(color: Colors.grey[300])),
       child: ListTile(
         enabled: false,
-        
         title: TextField(
           controller: textControler,
           style: new TextStyle(color: Colors.grey),

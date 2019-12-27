@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:linkedin/data/user_data.dart';
-import 'package:linkedin/users/user_card.dart';
 import 'package:provider/provider.dart';
+
+import 'features/users/user_card.dart';
 
 class MyNetworkPage extends StatelessWidget {
   @override

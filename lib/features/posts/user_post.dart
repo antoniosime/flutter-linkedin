@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:linkedin/features/posts/post_image_content.dart';
+import 'package:linkedin/features/posts/post_text_descriptio.dart';
+import 'package:linkedin/features/users/user_row.dart';
 import 'package:linkedin/models/post.dart';
-import 'package:linkedin/posts/base_post.dart';
-import 'package:linkedin/posts/comments_and_likes.dart';
-import 'package:linkedin/posts/post_image_content.dart';
-import 'package:linkedin/posts/post_text_descriptio.dart';
-import 'package:linkedin/users/user_row.dart';
+
+import 'base_post.dart';
+import 'comments_and_likes.dart';
 
 class UserPost extends StatelessWidget {
   final Post post;
@@ -29,7 +30,6 @@ class UserPost extends StatelessWidget {
       ),
       action: CommentsAndLikes(
         post: post,
-       
       ),
     );
   }

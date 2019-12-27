@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:linkedin/data/user_data.dart';
-import 'package:linkedin/users/user_contact.dart';
-import 'package:linkedin/users/user_education.dart';
-import 'package:linkedin/users/user_experiences.dart';
-import 'package:linkedin/users/user_list.dart';
-import 'package:linkedin/users/user_profile_card.dart';
+import 'package:linkedin/features/users/user_contact.dart';
+import 'package:linkedin/features/users/user_education.dart';
+import 'package:linkedin/features/users/user_experiences.dart';
+import 'package:linkedin/features/users/user_list.dart';
+import 'package:linkedin/features/users/user_profile_card.dart';
 import 'package:provider/provider.dart';
 
 class UserProfile extends StatefulWidget {
