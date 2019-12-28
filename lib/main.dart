@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:linkedin/data/company_data.dart';
+import 'package:linkedin/data/message_date.dart';
 import 'package:linkedin/data/post_data.dart';
 import 'package:linkedin/data/user_data.dart';
+import 'package:linkedin/features/messages/messages_view.dart';
 import 'package:provider/provider.dart';
 import 'constances.dart';
 import 'features/posts/post_view.dart';
@@ -71,6 +73,19 @@ class MyApp extends StatelessWidget {
         widget = ChangeNotifierProvider(
           create: (_) => UserData(),
           child: Search(),
+        );
+        break;
+      case MessagesScreen:
+        widget = MultiProvider(
+          providers: [
+            ChangeNotifierProvider<UserData>(
+              create: (_) => UserData(),
+            ),
+            ChangeNotifierProvider<MessagesData>(
+              create: (_) => MessagesData(),
+            ),
+          ],
+          child: MessagesView(),
         );
         break;
       default:

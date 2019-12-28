@@ -11,7 +11,6 @@ import 'features/jobs/jobs_page.dart';
 import 'features/notifications/notifications_page.dart';
 import 'features/posts/add_post.dart';
 
-
 class MainScreen extends StatefulWidget {
   @override
   _MainScreenState createState() => _MainScreenState();
@@ -81,8 +80,11 @@ class _MainScreenState extends State<MainScreen> {
   }
 
   goToSearch() {
-    print("search");
     Navigator.pushNamed(context, SearchScreen);
+  }
+
+  goToMessages() {
+    Navigator.pushNamed(context, MessagesScreen);
   }
 
   PreferredSizeWidget getAppBar() {
@@ -119,9 +121,12 @@ class _MainScreenState extends State<MainScreen> {
         ),
       ),
       actions: <Widget>[
-        Container(
-            padding: EdgeInsets.all(10),
-            child: Icon(FontAwesomeIcons.solidCommentAlt))
+        GestureDetector(
+          onTap: goToMessages,
+          child: Container(
+              padding: EdgeInsets.all(10),
+              child: Icon(FontAwesomeIcons.solidCommentAlt)),
+        )
       ],
     );
   }

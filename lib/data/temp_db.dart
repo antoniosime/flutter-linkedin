@@ -4,6 +4,7 @@ import 'package:linkedin/models/company.dart';
 import 'package:linkedin/models/contact.dart';
 import 'package:linkedin/models/education.dart';
 import 'package:linkedin/models/experince.dart';
+import 'package:linkedin/models/message.dart';
 import 'package:linkedin/models/post.dart';
 import 'package:linkedin/models/user.dart';
 import 'package:uuid/uuid.dart';
@@ -14,6 +15,7 @@ class TempDB {
   List<User> users;
   List<Company> companies;
   List<Post> posts;
+  List<Message> messages;
 
   TempDB tempDB;
 
@@ -25,6 +27,7 @@ class TempDB {
     users = new List<User>();
     companies = new List<Company>();
     posts = new List<Post>();
+    messages = new List<Message>();
 
     initDB();
   }
@@ -246,5 +249,12 @@ class TempDB {
         new List<String>(),
         new List<Comment>());
     posts.add(p);
+
+    messages.add(new Message(
+        id: Uuid().v1(),
+        message: "Test Message",
+        sender: users.first,
+        receiver: users.first,
+        time: DateTime.now()));
   }
 }
