@@ -9,22 +9,15 @@ import 'package:linkedin/models/post.dart';
 import 'package:linkedin/models/user.dart';
 import 'package:uuid/uuid.dart';
 
-class TempDB {
-  static final TempDB _singleton = TempDB._internal();
 
-  List<User> users;
+class DataServices{
+   List<User> users;
   List<Company> companies;
   List<Post> posts;
   List<Message> messages;
 
-  TempDB tempDB;
-
-  factory TempDB() {
-    return _singleton;
-  }
-
-  TempDB._internal() {
-    users = new List<User>();
+  DataServices(){
+     users = new List<User>();
     companies = new List<Company>();
     posts = new List<Post>();
     messages = new List<Message>();
@@ -32,7 +25,7 @@ class TempDB {
     initDB();
   }
 
-  initDB() {
+   initDB() {
     Company servicePro = new Company(
         Uuid().v1(),
         "Service Pro",
@@ -257,4 +250,5 @@ class TempDB {
         receiver: users.first,
         time: DateTime.now()));
   }
+
 }

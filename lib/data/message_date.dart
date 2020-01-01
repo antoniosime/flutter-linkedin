@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:linkedin/data/temp_db.dart';
 import 'package:linkedin/models/message.dart';
+
+import 'base_data_repository.dart';
 
 class MessagesData with ChangeNotifier {
   List<Message> messages;
+  BaseDataRepository _baseDataRepository;
 
-  MessagesData() {
-    messages = TempDB().messages;
+  MessagesData(BaseDataRepository baseDataRepository) {
+    _baseDataRepository = baseDataRepository;
+    messages = _baseDataRepository.getMessages();
   }
 
   List<Message> getUserMessages(String userid) => messages

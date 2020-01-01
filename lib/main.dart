@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:linkedin/data/company_data.dart';
+import 'package:linkedin/data/fake_data_reposiroty.dart';
 import 'package:linkedin/data/message_date.dart';
 import 'package:linkedin/data/post_data.dart';
 import 'package:linkedin/data/user_data.dart';
@@ -26,13 +27,13 @@ class MyApp extends StatelessWidget {
       home: MultiProvider(
         providers: [
           ChangeNotifierProvider<UserData>(
-            create: (_) => UserData(),
+            create: (_) => UserData(new FakeDataRrepository()),
           ),
           ChangeNotifierProvider<PostData>(
-            create: (_) => PostData(),
+            create: (_) => PostData(new FakeDataRrepository()),
           ),
           ChangeNotifierProvider<CompanyData>(
-            create: (_) => CompanyData(),
+            create: (_) => CompanyData(new FakeDataRrepository()),
           )
         ],
         child: Scaffold(
@@ -49,7 +50,7 @@ class MyApp extends StatelessWidget {
     switch (settings.name) {
       case UserProfileScreen:
         widget = ChangeNotifierProvider(
-          create: (_) => UserData(),
+          create: (_) => UserData(new FakeDataRrepository()),
           child: UserProfile(userID: arguments['userID']),
         );
         break;
@@ -57,13 +58,13 @@ class MyApp extends StatelessWidget {
         widget = MultiProvider(
           providers: [
             ChangeNotifierProvider<UserData>(
-              create: (_) => UserData(),
+              create: (_) => UserData(new FakeDataRrepository()),
             ),
             ChangeNotifierProvider<PostData>(
-              create: (_) => PostData(),
+              create: (_) => PostData(new FakeDataRrepository()),
             ),
             ChangeNotifierProvider<CompanyData>(
-              create: (_) => CompanyData(),
+              create: (_) => CompanyData(new FakeDataRrepository()),
             )
           ],
           child: PostView(postID: arguments['postID']),
@@ -71,7 +72,7 @@ class MyApp extends StatelessWidget {
         break;
       case SearchScreen:
         widget = ChangeNotifierProvider(
-          create: (_) => UserData(),
+          create: (_) => UserData(new FakeDataRrepository()),
           child: Search(),
         );
         break;
@@ -79,10 +80,10 @@ class MyApp extends StatelessWidget {
         widget = MultiProvider(
           providers: [
             ChangeNotifierProvider<UserData>(
-              create: (_) => UserData(),
+              create: (_) => UserData(new FakeDataRrepository()),
             ),
             ChangeNotifierProvider<MessagesData>(
-              create: (_) => MessagesData(),
+              create: (_) => MessagesData(new FakeDataRrepository()),
             ),
           ],
           child: MessagesView(),
