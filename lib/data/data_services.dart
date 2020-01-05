@@ -4,28 +4,38 @@ import 'package:linkedin/models/company.dart';
 import 'package:linkedin/models/contact.dart';
 import 'package:linkedin/models/education.dart';
 import 'package:linkedin/models/experince.dart';
+import 'package:linkedin/models/job.dart';
 import 'package:linkedin/models/message.dart';
 import 'package:linkedin/models/post.dart';
 import 'package:linkedin/models/user.dart';
 import 'package:uuid/uuid.dart';
 
-
-class DataServices{
-   List<User> users;
+class DataServices {
+  List<User> users;
   List<Company> companies;
   List<Post> posts;
   List<Message> messages;
+  List<Job> jobs;
 
-  DataServices(){
-     users = new List<User>();
+  addJob(Job job) {
+    jobs.add(job);
+  }
+
+  removeJob(String jobID) {
+    jobs.removeWhere((c) => c.id == jobID);
+  }
+
+  DataServices() {
+    users = new List<User>();
     companies = new List<Company>();
     posts = new List<Post>();
     messages = new List<Message>();
+    jobs = new List<Job>();
 
     initDB();
   }
 
-   initDB() {
+  initDB() {
     Company servicePro = new Company(
         Uuid().v1(),
         "Service Pro",
@@ -249,6 +259,58 @@ class DataServices{
         sender: users.first,
         receiver: users.first,
         time: DateTime.now()));
-  }
 
+    addJob(new Job(
+        id: Uuid().v1(),
+        company: amazon,
+        title: "Data Engineer",
+        descriptions: """Job ID: 200029491
+      Warehouse Team Member (Full-Time, Part-Time)Shifts: Day, Overnight, WeekendLocationCarteret, NJJob opportunities vary by location. We update postings daily with open positions.Salary 15.75/hr - 16.90/hrJob
+        Description Find the right Amazon opportunity f""",
+        dateTime: DateTime.now()));
+
+    addJob(new Job(
+        id: Uuid().v1(),
+        company: hays,
+        title: "Data Engineer",
+        descriptions: """Job ID: 200029491
+      Warehouse Team Member (Full-Time, Part-Time)Shifts: Day, Overnight, WeekendLocationCarteret, NJJob opportunities vary by location. We update postings daily with open positions.Salary 15.75/hr - 16.90/hrJob
+        Description Find the right Amazon opportunity f""",
+        dateTime: DateTime.now()));
+
+    addJob(new Job(
+        id: Uuid().v1(),
+        company: servicePro,
+        title: "Data Engineer",
+        descriptions: """Job ID: 200029491
+      Warehouse Team Member (Full-Time, Part-Time)Shifts: Day, Overnight, WeekendLocationCarteret, NJJob opportunities vary by location. We update postings daily with open positions.Salary 15.75/hr - 16.90/hrJob
+        Description Find the right Amazon opportunity f""",
+        dateTime: DateTime.now()));
+    addJob(new Job(
+        id: Uuid().v1(),
+        company: amazon,
+        title: "Data Engineer",
+        descriptions: """Job ID: 200029491
+      Warehouse Team Member (Full-Time, Part-Time)Shifts: Day, Overnight, WeekendLocationCarteret, NJJob opportunities vary by location. We update postings daily with open positions.Salary 15.75/hr - 16.90/hrJob
+        Description Find the right Amazon opportunity f""",
+        dateTime: DateTime.now()));
+
+    addJob(new Job(
+        id: Uuid().v1(),
+        company: hays,
+        title: "Data Engineer",
+        descriptions: """Job ID: 200029491
+      Warehouse Team Member (Full-Time, Part-Time)Shifts: Day, Overnight, WeekendLocationCarteret, NJJob opportunities vary by location. We update postings daily with open positions.Salary 15.75/hr - 16.90/hrJob
+        Description Find the right Amazon opportunity f""",
+        dateTime: DateTime.now()));
+
+    addJob(new Job(
+        id: Uuid().v1(),
+        company: servicePro,
+        title: "Data Engineer",
+        descriptions: """Job ID: 200029491
+      Warehouse Team Member (Full-Time, Part-Time)Shifts: Day, Overnight, WeekendLocationCarteret, NJJob opportunities vary by location. We update postings daily with open positions.Salary 15.75/hr - 16.90/hrJob
+        Description Find the right Amazon opportunity f""",
+        dateTime: DateTime.now()));
+  }
 }

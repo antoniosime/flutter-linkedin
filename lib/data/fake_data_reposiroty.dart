@@ -1,5 +1,5 @@
-
 import 'package:linkedin/data/data_services.dart';
+import 'package:linkedin/models/job.dart';
 import 'package:linkedin/models/post.dart';
 import 'package:linkedin/models/company.dart';
 import 'package:linkedin/models/message.dart';
@@ -39,4 +39,13 @@ class FakeDataRrepository implements BaseDataRepository {
   List<User> getUsers() {
     return _dataServices.users;
   }
+
+  @override
+  List<Job> getJobs() => _dataServices.jobs;
+
+  @override
+  addJob(Job job) => _dataServices.addJob(job);
+
+  @override
+  removeJob(String jobID) => _dataServices.removeJob(jobID);
 }

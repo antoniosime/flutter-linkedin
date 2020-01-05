@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:linkedin/data/company_data.dart';
 import 'package:linkedin/data/fake_data_reposiroty.dart';
+import 'package:linkedin/data/job_data.dart';
 import 'package:linkedin/data/message_date.dart';
 import 'package:linkedin/data/post_data.dart';
 import 'package:linkedin/data/user_data.dart';
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -34,6 +36,9 @@ class MyApp extends StatelessWidget {
           ),
           ChangeNotifierProvider<CompanyData>(
             create: (_) => CompanyData(new FakeDataRrepository()),
+          ),
+          ChangeNotifierProvider<JobData>(
+            create: (_) => JobData(new FakeDataRrepository()),
           )
         ],
         child: Scaffold(
