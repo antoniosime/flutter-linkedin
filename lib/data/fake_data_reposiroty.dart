@@ -1,5 +1,6 @@
 import 'package:linkedin/data/data_services.dart';
 import 'package:linkedin/models/job.dart';
+import 'package:linkedin/models/notification.dart';
 import 'package:linkedin/models/post.dart';
 import 'package:linkedin/models/company.dart';
 import 'package:linkedin/models/message.dart';
@@ -48,4 +49,7 @@ class FakeDataRrepository implements BaseDataRepository {
 
   @override
   removeJob(String jobID) => _dataServices.removeJob(jobID);
+
+  @override
+  List<Notification> getNotification() => _dataServices.notifications;
 }

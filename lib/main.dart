@@ -3,6 +3,7 @@ import 'package:linkedin/data/company_data.dart';
 import 'package:linkedin/data/fake_data_reposiroty.dart';
 import 'package:linkedin/data/job_data.dart';
 import 'package:linkedin/data/message_date.dart';
+import 'package:linkedin/data/notification_data.dart';
 import 'package:linkedin/data/post_data.dart';
 import 'package:linkedin/data/user_data.dart';
 import 'package:linkedin/features/messages/messages_view.dart';
@@ -39,6 +40,9 @@ class MyApp extends StatelessWidget {
           ),
           ChangeNotifierProvider<JobData>(
             create: (_) => JobData(new FakeDataRrepository()),
+          ),
+           ChangeNotifierProvider<NotificationData>(
+            create: (_) => NotificationData(new FakeDataRrepository()),
           )
         ],
         child: Scaffold(

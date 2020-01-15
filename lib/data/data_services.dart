@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:linkedin/models/comment.dart';
 import 'package:linkedin/models/company.dart';
@@ -6,9 +7,11 @@ import 'package:linkedin/models/education.dart';
 import 'package:linkedin/models/experince.dart';
 import 'package:linkedin/models/job.dart';
 import 'package:linkedin/models/message.dart';
+import 'package:linkedin/models/notification.dart';
 import 'package:linkedin/models/post.dart';
 import 'package:linkedin/models/user.dart';
 import 'package:uuid/uuid.dart';
+import 'package:linkedin/models/notification.dart' as a;
 
 class DataServices {
   List<User> users;
@@ -16,6 +19,7 @@ class DataServices {
   List<Post> posts;
   List<Message> messages;
   List<Job> jobs;
+  List<a.Notification> notifications;
 
   addJob(Job job) {
     jobs.add(job);
@@ -31,6 +35,7 @@ class DataServices {
     posts = new List<Post>();
     messages = new List<Message>();
     jobs = new List<Job>();
+    notifications = new List<a.Notification>();
 
     initDB();
   }
@@ -312,5 +317,35 @@ class DataServices {
       Warehouse Team Member (Full-Time, Part-Time)Shifts: Day, Overnight, WeekendLocationCarteret, NJJob opportunities vary by location. We update postings daily with open positions.Salary 15.75/hr - 16.90/hrJob
         Description Find the right Amazon opportunity f""",
         dateTime: DateTime.now()));
+
+    notifications.add(new a.Notification(
+        text:
+            "EU bank boosts women-led businesses, Is bonus culture on its way out?, and other top news for you",
+        id: Uuid().v1()));
+
+        notifications.add(new a.Notification(
+        text:
+            "EU bank boosts women-led businesses, Is bonus culture on its way out?, and other top news for you",
+        id: Uuid().v1()));
+
+        notifications.add(new a.Notification(
+        text:
+            "EU bank boosts women-led businesses, Is bonus culture on its way out?, and other top news for you",
+        id: Uuid().v1()));
+
+         notifications.add(new a.Notification(
+        text:
+            "EU bank boosts women-led businesses, Is bonus culture on its way out?, and other top news for you",
+        id: Uuid().v1()));
+
+        notifications.add(new a.Notification(
+        text:
+            "EU bank boosts women-led businesses, Is bonus culture on its way out?, and other top news for you",
+        id: Uuid().v1()));
+
+        notifications.add(new a.Notification(
+        text:
+            "EU bank boosts women-led businesses, Is bonus culture on its way out?, and other top news for you",
+        id: Uuid().v1()));
   }
 }
